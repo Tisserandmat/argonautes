@@ -6,42 +6,50 @@
  {% endblock %}
 {% block body %}
 
-<header>
-    <h1>
-        <img src="https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png" alt="Wild Code School logo" />
-        Les Argonautes
-    </h1>
-</header>
+    <header>
+        <h1>
+            <img src="https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png"
+                 alt="Wild Code School logo"/>
+            Les Argonautes
+        </h1>
+    </header>
 
-<!-- Main section -->
-<main>
+    <!-- Main section -->
+    <main class="mb-5 mt-5">
 
-    <!-- New member form -->
-    <h2>Ajouter un(e) Argonaute</h2>
-{#    {{ include('argonautes/_form.html.twig') }}#}
+        <!-- New member form -->
+        <h2 class="mb-5 mt-5">Ajouter un(e) Argonaute</h2>
+        {# {{ include('argonautes/_form.html.twig') }} #}
 
-<div class="form">
-    {{ include('argonautes/_form.html.twig') }}
-</div>
+        <div class="form mb-5 mt-5">
+            {{ include('argonautes/_form.html.twig') }}
+        </div>
 
 
-    <!-- Member list -->
-    <h2>Membres de l'équipage</h2>
-    <section class="member-list ">
-        {% if argonautes is not null %}
-            <div class="argoname">
-        {% for argonaute in argonautes %}
+        <!-- Member list -->
+        <h2 class="mt-4 mb-4">Membres de l'équipage</h2>
+        <section class="member-list mt-5 mb-5">
+            <div class="container d-flex argoname">
+                <div class="row align-content-center argoname justify-content-around">
 
-        <div class="member-item">{{ argonaute.name }}</div>
+                    {% if argonautes is not null %}
 
-    {% endfor %}
+                        {% for argonaute in argonautes %}
+                            <div class="col-4 justify-content-center align-items-center">
+                                <p class="text-center">{{ argonaute.name }}</p>
+                            </div>
+                        {% endfor %}
+
+
+                    {% endif %}
+                </div>
             </div>
-        {% endif %}
-    </section>
-</main>
 
-<footer>
-    <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
-</footer>
+        </section>
+    </main>
+
+    <footer class="mt-5">
+        <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
+    </footer>
 
 {% endblock %}
